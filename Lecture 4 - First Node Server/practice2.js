@@ -40,11 +40,11 @@ res.write(`
     <head>
       <nav>
         <ul>
-          <li><a href="/home">Home<</a>/li>
-          <li><a href="/men">MEn</a></li>
-          <li><a href="/womwn">women</a></li>
-          <li><a href="/homekid">kid</a></li>
-          <li><a href="/cart">cart</a></li>
+          <li> <a href="/home">Home</a>   /li>
+          <li> <a href="/men">MEn</a>   </li>
+          <li> <a href="/womwn">women</a>    </li>
+          <li> <a href="/homekid">kid</a>   </li>
+          <li> <a href="/cart">cart</a>   </li>
         </ul>
       </nav>
     </head>
