@@ -3,7 +3,7 @@ console.log('kg coding can help get into jog or hiring')
 
 const  fs = require('fs')
 
-fs.writeFile("output.text","writing File" , (err)=>{
+fs.writeFile("output.text","helllo world" , (err)=>{
   if(err){console.log("error occurred");}
   else console.log('File wirting succsesfully')
 })

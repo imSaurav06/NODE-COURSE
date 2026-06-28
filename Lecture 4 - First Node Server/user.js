@@ -1,46 +1,52 @@
 const http = require('http');
+const fs = require('fs');
 
+const server = http.createServer((request, response) => {
+  console.log(request.url, request.method, request.headers);
 
-function requestListener(request,response){
-  console.log(request.url ,request.method,request.headers);
+  if (request.url === '/') {
+    response.setHeader('Content-Type', 'text/html');
 
+    response.write('<html>');
+    response.write('<head><title>Complete Coding</title></head>');
+    response.write('<body><h1>Enter Your Details:</h1>');
+    response.write('<form action="/submit-details" method="POST">');
+    response.write('<input type="text" name="username" placeholder="Enter your name"><br>');
+    response.write('<label for="male">Male</label>');
+    response.write('<input type="radio" id="male" name="gender" value="male">');
+    response.write('<label for="female">Female</label>');
+    response.write('<input type="radio" id="female" name="gender" value="female">');
+    response.write('<br><input type="submit" value="Submit">');
+    response.write('</form>');
+    response.write('</body>');
+    response.write('</html>');
 
+    return response.end(); // ✅ Fixed
+  }
 
+  if (
+    request.url.toLowerCase() === '/submit-details' &&
+    request.method === 'POST'
+  ) {
+    fs.writeFileSync('user.txt', 'Prashant Jain');
 
-  if(request.url === '/product'){
-     response.setHeader('content-text','texthtml');
+    response.statusCode = 302;
+    response.setHeader('Location', '/');
+
+    return response.end(); // ✅ Fixed
+  }
+
+  response.setHeader('Content-Type', 'text/html');
   response.write('<html>');
-  response.write('<head><tital>The Indian Space Research Organisation (ISRO</tital></head>');
-  response.write('<body><h1>CISRO has an official logo since 2002. It consists of an or</h1></body>');
+  response.write('<head><title>Complete Coding</title></head>');
+  response.write('<body><h1>Like / Share / Subscribe</h1></body>');
   response.write('</html>');
   response.end();
   return;
+});
 
-  }
-  else if(request.url === '/about'){
-     response.setHeader('content-text','texthtml');
-  response.write('<html>');
-  response.write('<head><tital>Complete NodeJS + ExpressJS + </tital></head>');
-  response.write('<body><h1>Complete NodeJS + ExpressJS + </h1></body>');
-  response.write('</html>');
-  return response.end();
-
-  }
-  else{
-
-    response.setHeader('content-text','texthtml');
-    response.write('<html>');
-    response.write('<head><tital>Organisation structure and facilities</tital></head>');
-    response.write('<body><h1>Complete NodeJS + ExpressJS + </h1></body>');
-    response.write('</html>');
-     response.end();
-  }
-}
-
-const server = http.createServer(requestListener);
- 
-// server.listen(5003);
 const PORT = 5003;
-server.listen(PORT,()=>{
-  console.log(`server running at http://localhost:${PORT}`)
-})
+
+server.listen(PORT, () => {
+  console.log(`Server running on http://localhost:${PORT}`);
+});
