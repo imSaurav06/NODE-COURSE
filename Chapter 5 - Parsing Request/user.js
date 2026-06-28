@@ -49,7 +49,7 @@ req.on('end', ()=>{
   console.log(fullBody);
 
   const params = new URLSearchParams(fullBody);
-
+ 
 // const bodyObject ={};
 
 // for(const[key,val]  of params.entries()) {
@@ -57,7 +57,7 @@ req.on('end', ()=>{
 // }  
 
 //shortcut
-
+ 
 const bodyObject = Object.fromEntries(params);
 
 console.log(bodyObject);
