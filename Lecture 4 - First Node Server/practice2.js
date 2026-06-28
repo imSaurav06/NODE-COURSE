@@ -6,23 +6,27 @@ console.log("successfully🟩")
 
 const server = http.createServer((req,res)=>{
 console.log(req.url,req.method);
+
 if (req.url==='/home') {
-  <h>welcome to the home</h>
+  res.write(`<h>welcome to the home</h>`)
 }
-else if(req.url==='/home'){
- <h>welcome to the home</h>
+else if(req.url==='/men'){
+ res.write(`<h>welcome to the men</h>`)
 }
-else if(req.url==='/home'){
- <h>welcome to the home</h>
+else if(req.url==='/women'){
+ res.write(`<h>welcome to the women</h>`)
 }
 
-else if(req.url==='/home'){
-
+else if(req.url==='/kid'){
+ res.write(`<h>welcome to the kid</h>`)
+}
+else if(req.url==='/cart'){
+ res.write(`<h>welcome to the Cart</h>`)
 }
 
 else
 res.write(
-  <html>
+  `<html>
     <head>
      <tital>MYNTRA</tital>
     </head>
@@ -40,7 +44,7 @@ res.write(
       </nav>
     </head>
     </body>
-  </html>
+  </html>`
 )
 });
 
