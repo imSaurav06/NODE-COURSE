@@ -1,18 +1,24 @@
 {
-  "name": "xyzzzz",
+  "name": "practise-set",
   "version": "1.0.0",
-  "description": "mic testing",
-  "license": "ISC",
+  "description": "",
+  "main": "index.js",
+
+  "keywords": [],
   "author": "",
+  "license": "ISC",
   "type": "commonjs",
-  "main": "app.js",
-  "scripts": {
+
+"scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "nodemon app.js",
     "khul-ja-sim-sim": "node app.js"
   },
-  "dependencies": {
-    "express": "^3.0.1",
+"dependencies": {
+    "express": "^5.1.0",
     "nodemon": "^3.1.14"
-  }
 }
+
+
+}
+

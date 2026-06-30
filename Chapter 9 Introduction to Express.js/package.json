@@ -11,8 +11,8 @@
     "start": "nodemon app.js",
     "khul-ja-sim-sim": "node app.js"
   },
-  "dependencies": {
-    "Express": "^3.0.1",
+"dependencies": {
+    "express": "^5.1.0",
     "nodemon": "^3.1.14"
-  }
+}
 }

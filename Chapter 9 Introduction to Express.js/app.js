@@ -1,12 +1,26 @@
-const { prototype } = require('events');
-const http = require('http');
+// External Module
+const express = require('express');
 
+const app = express();
 
-const server = http.createServer((res,req)=>{
-    console.log('function call');
+app.get("/", (req, res, next) => {
+  console.log("Came in first middleware", req.url, req.method);
+  //res.send("<p>Came from First Middleware</p>");
+  next();
 });
 
-const PORT = 3001;
-server.listen(PORT , ()=>{
-        console.log('successfull');
-})
+app.post("/submit-details", (req, res, next) => {
+  console.log("Came in second middleware", req.url, req.method);
+  res.send("<p>Welcome to Complete Coding Nodejs series</p>");
+});
+
+app.use("/", (req, res, next) => {
+  console.log("Came in another middleware", req.url, req.method);
+  res.send("<p>Came from another Middleware</p>");
+});
+
+
+const PORT = 3002;
+app.listen(PORT, () => {
+  console.log(`Server running on address http://localhost:${PORT}`);
+});
